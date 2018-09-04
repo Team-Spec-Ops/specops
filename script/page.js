@@ -67,7 +67,7 @@ function createAccountPage()
   document.getElementById("UserLoggingIn").style.display="none";
   document.getElementById("CreateAccount").style.display="block";
 }
-function Update_user_information(var name, var photoURL)
+function Update_user_information(name, photoURL)
 {
   var user = firebase.auth().currentUser;
   user.updateProfile({
