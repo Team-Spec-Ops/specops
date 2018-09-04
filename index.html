@@ -6,7 +6,7 @@
 </head>
 <body>
 <div id="UserLoggingIn">
-	<h1> E-Library Student Login Page</h1>
+	<h1>E-Library Student Login Page</h1>
 	<h3>Enter your username and password</h3>
 	<input type= "textfield" id="Input_Username" placeholder = "Enter your Username here"/>
 	<br>
@@ -21,6 +21,8 @@
 </div>
 <div id="UserLoggedIn">
 	<h1> Welcome User!</h1>
+	<a href="SubPages/User_profile_updatation.html"> Update your information</a>
+	<br>
 	<button onclick="Logout()">Sign out</button>
 </div>
 </body>
@@ -31,8 +33,6 @@
 <div id="CreateAccount">
 <h1> Create an account</h1>
 	<p>
-	Name: <input type="textfield" id="Name_new_user" placeholder = "Your Name"><br><br>
-	Library Card Number:<input type="textfield" id="Card_new_user" placeholder = "Library Card No.(e.g.- K-6748)"><br><br>
 	Email Id: <input type= "textfield" id="Input_Username_create" placeholder = "Enter your Email Id here"/><br><br>
 	Password: <input type= "password" id="Input_Password_create" placeholder = "Enter your Password here"/><br><br>
 	<button onclick="createAccount()">Sign up</button>

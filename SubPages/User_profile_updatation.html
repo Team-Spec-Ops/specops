@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<style type="text/css">
+  body{
+    background: white;
+    font-family: arial;
+  }
+  #Update_profile{
+    display:block;
+  }
+</style>
+	<title id="title">Student Profile Updatation</title>
+</head>
+<body>
+</html>
+<div id="Update_profile">
+<h1> Update your profile</h1>
+	<p>
+	Name: <input type="textfield" id="Name_new_user" placeholder = "Your Name"><br><br>
+	Library Card Number:<input type="textfield" id="Card_new_user" placeholder = "Library Card No.(e.g.- K-6748)"><br><br>
+	<button onclick="Update_user_information()">Submit</button>
+	<br>
+	</p>
+</div>
+</body>
+<script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+<script>
+  var config = {
+    apiKey: "AIzaSyCOHldHNz4lIgRQ2Rn_kGlHFAs8S2T4r5c",
+    authDomain: "e-library-website.firebaseapp.com",
+    databaseURL: "https://e-library-website.firebaseio.com",
+    projectId: "e-library-website",
+    storageBucket: "e-library-website.appspot.com",
+    messagingSenderId: "1042701291539"
+  };
+  firebase.initializeApp(config);
+
+function Update_user_information()
+{
+  var user = firebase.auth().currentUser;
+  var name= document.getElementById("Name_new_user").value;
+  var card_no= document.getElementById("Card_new_user").value;
+  user.updateProfile({
+  displayName: name,
+  photoURL: card_no
+  }).then(function() {
+  window.location.assign("../index.html");
+  window.alert("User information updated successfully");
+  }).catch(function(error) {
+  window.alert("Unexpected error occured");
+  });
+}
+</script>

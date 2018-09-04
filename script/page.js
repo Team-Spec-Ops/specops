@@ -52,9 +52,7 @@ function createAccount()
 {
   var username = document.getElementById("Input_Username_create").value;
   var password = document.getElementById("Input_Password_create").value;
-  var name = document.getElementById("Name_new_user");
-  var card_no = document.getElementById("Card_new_user");
-  firebase.auth().createUserWithEmailAndPassword(username, password).then(Update_user_information()).catch(function(error) {
+  firebase.auth().createUserWithEmailAndPassword(username, password).catch(function(error) {
   var errorCode = error.code;
   var errorMessage = error.message;
   window.alert("An unexpected error occured" + errorMessage);
@@ -67,16 +65,3 @@ function createAccountPage()
   document.getElementById("UserLoggingIn").style.display="none";
   document.getElementById("CreateAccount").style.display="block";
 }
-function Update_user_information(name, photoURL)
-{
-  var user = firebase.auth().currentUser;
-  user.updateProfile({
-  displayName: name,
-  photoURL: card_no
-  }).then(function() {
-  window.alert("User information updated successfully");
-  }).catch(function(error) {
-  window.alert("Unexpected error occured");
-  });
-}
-
