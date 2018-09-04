@@ -33,7 +33,7 @@
   }
 
  firebase.auth().signOut().then(function() {
-  //window.alert("Successfully signed out!")
+  // window.alert("Successfully signed out!")
   document.getElementById("UserLoggedIn").style.display="none";
   document.getElementById("UserLoggingIn").style.display="initial";
 }).catch(function(error) {
