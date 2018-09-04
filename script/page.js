@@ -13,10 +13,12 @@
   if (user) {
     document.getElementById("UserLoggedIn").style.display="initial";
     document.getElementById("UserLoggingIn").style.display="none";
+    document.getElementById("CreateAccount").style.display="none";
     //window.alert("Logged in")
   } else {
     document.getElementById("UserLoggedIn").style.display="none";
     document.getElementById("UserLoggingIn").style.display="initial";
+    document.getElementById("CreateAccount").style.display="none";
     //window.alert("Not logged in");
   }
 });
@@ -32,16 +34,6 @@
 });
   }
 
- firebase.auth().signOut().then(function() {
-  // window.alert("Successfully signed out!")
-  document.getElementById("UserLoggedIn").style.display="none";
-  document.getElementById("UserLoggingIn").style.display="initial";
-}).catch(function(error) {
-  window.alert("An unexpected error occured");
-  document.getElementById("UserLoggedIn").style.display="initial";
-  document.getElementById("UserLoggingIn").style.display="none";
-});
-
 function Logout()
   {
     firebase.auth().signOut().then(function() {
@@ -52,4 +44,22 @@ function Logout()
   document.getElementById("UserLoggedIn").style.display="initial";
   document.getElementById("UserLoggingIn").style.display="none";
 });
+}
+
+function createAccount()
+{
+  var username = document.getElementById("Input_Username_create").value;
+  var password = document.getElementById("Input_Password_create").value;
+  firebase.auth().createUserWithEmailAndPassword(username, password).catch(function(error) {
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  window.alert("An unexpected error occured" + errorMessage);
+});
+}
+
+function createAccountPage()
+{
+  document.getElementById("UserLoggedIn").style.display="none";
+  document.getElementById("UserLoggingIn").style.display="none";
+  document.getElementById("CreateAccount").style.display="block";
 }

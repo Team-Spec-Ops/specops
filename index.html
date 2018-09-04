@@ -15,6 +15,9 @@
 	<br>
 	<br>
 	<button onclick="Login()">Sign in</button>
+	<br>
+	<p> Don't have an account? </p> 
+	<a href="#" onclick="createAccountPage()"> Create a new account </a>
 </div>
 <div id="UserLoggedIn">
 	<h1> Welcome User</h1>
@@ -25,3 +28,15 @@
 <script src="script/page.js">
 </script>
 </html>
+<div id="CreateAccount">
+<h1> Create an account</h1>
+	<h3>Enter your Email-Address(this will be your username) and Password </h3>
+	<input type= "textfield" id="Input_Username_create" placeholder = "Enter your Email Id here"/>
+	<br>
+	<br>
+	<input type= "password" id="Input_Password_create" placeholder = "Enter your Password here"/>
+	<br>
+	<br>
+	<button onclick="createAccount()">Sign up</button>
+	<br>
+</div>
