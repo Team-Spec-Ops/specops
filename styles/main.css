@@ -2,10 +2,12 @@ body{
 	background:white;
 	font-family:arial; 
 }
-
+div{
+	background: white;
+}
 #UserLoggingIn
 {
-	display:"initial";
+	display:"block";
 }
 #UserLoggedIn
 {

@@ -11,20 +11,46 @@
 
   firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-    document.getElementByID("UserLoggedIn").style.display:"initial";
-    document.getElementByID("UserLoggingIn").style.display:"none";
+    document.getElementById("UserLoggedIn").style.display="initial";
+    document.getElementById("UserLoggingIn").style.display="none";
+    //window.alert("Logged in")
   } else {
-    document.getElementByID("UserLoggedIn").style.display:"none";
-    document.getElementByID("UserLoggingIn").style.display:"initial";
+    document.getElementById("UserLoggedIn").style.display="none";
+    document.getElementById("UserLoggingIn").style.display="initial";
+    //window.alert("Not logged in");
   }
 });
-  function.Login()
+
+  function Login()
   {
-  	var username = document.getElementByID("Input_Username").value;
-  	var password = document.getElementByID("Input_Password").value;
-  	firebase.auth().signInWithEmailAndPassword(username, password).catch(function(error) {
- 	var errorCode = error.code;
-  	var errorMessage = error.message;
-  	window.alert("Error: " + errorMessage);
+    var username = document.getElementById("Input_Username").value;
+    var password = document.getElementById("Input_Password").value;
+    firebase.auth().signInWithEmailAndPassword(username, password).catch(function(error) {
+  var errorCode = error.code;
+    var errorMessage = error.message;
+    window.alert("Error: " + errorMessage);
 });
   }
+
+ firebase.auth().signOut().then(function() {
+  window.alert("Successfully signed out!")
+  document.getElementById("UserLoggedIn").style.display="none";
+  document.getElementById("UserLoggingIn").style.display="initial";
+}).catch(function(error) {
+  window.alert("An unexpected error occured");
+  document.getElementById("UserLoggedIn").style.display="initial";
+  document.getElementById("UserLoggingIn").style.display="none";
+});
+
+function Logout()
+  {
+    firebase.auth().signOut().then(function() {
+  window.alert("Successfully signed out!")
+  document.getElementById("UserLoggedIn").style.display="none";
+  document.getElementById("UserLoggingIn").style.display="initial";
+}).catch(function(error) {
+  window.alert("An unexpected error occured");
+  document.getElementById("UserLoggedIn").style.display="initial";
+  document.getElementById("UserLoggingIn").style.display="none";
+});
+}
