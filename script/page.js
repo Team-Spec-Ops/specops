@@ -14,12 +14,14 @@
     document.getElementById("UserLoggedIn").style.display="initial";
     document.getElementById("UserLoggingIn").style.display="none";
     document.getElementById("CreateAccount").style.display="none";
+    document.getElementById("NewUserPage").style.display="none";
     document.getElementById("title").innerHTML="Welcome User";//needs improvement
     //window.alert("Logged in")
   } else {
     document.getElementById("UserLoggedIn").style.display="none";
     document.getElementById("UserLoggingIn").style.display="initial";
     document.getElementById("CreateAccount").style.display="none";
+    document.getElementById("NewUserPage").style.display="none";
     //window.alert("Not logged in");
   }
 });
@@ -51,7 +53,7 @@ function createAccount()
 {
   var username = document.getElementById("Input_Username_create").value;
   var password = document.getElementById("Input_Password_create").value;
-  firebase.auth().createUserWithEmailAndPassword(username, password).catch(function(error) {
+  firebase.auth().createUserWithEmailAndPassword(username, password).then(Update_user_information();).catch(function(error) {
   var errorCode = error.code;
   var errorMessage = error.message;
   window.alert("An unexpected error occured" + errorMessage);
@@ -63,4 +65,19 @@ function createAccountPage()
   document.getElementById("UserLoggedIn").style.display="none";
   document.getElementById("UserLoggingIn").style.display="none";
   document.getElementById("CreateAccount").style.display="block";
+}
+
+function Update_user_information()
+{
+  var user = firebase.auth().currentUser;
+  var name = document.getElementById("Name_new_user");
+  var card_no = document.getElementById("Card_new_user");
+  user.updateProfile({
+  displayName: name,
+  photoURL: card_no
+  }).then(function() {
+  window.alert("User information updated successfully");
+  }).catch(function(error) {
+  window.alert("Unexpected error occured");
+  });
 }
