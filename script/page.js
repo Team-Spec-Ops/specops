@@ -8,7 +8,7 @@
     messagingSenderId: "1042701291539"
   };
   firebase.initializeApp(config);
-  
+
   firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     document.getElementByID("UserLoggedIn").style.display:"initial";
@@ -18,7 +18,6 @@
     document.getElementByID("UserLoggingIn").style.display:"initial";
   }
 });
-
   function.Login()
   {
   	var username = document.getElementByID("Input_Username").value;
