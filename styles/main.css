@@ -1,0 +1,17 @@
+body{
+	background:white;
+	font-family:arial; 
+}
+ul{
+	margin:0 0 0 0;
+}
+li{
+	display:inline-block;
+	background: black;
+	color: green;
+	margin: 0 0 0 0;
+	padding: 10px 10px 10px 10px;
+}
+p{
+	display: block;
+}
