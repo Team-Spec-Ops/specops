@@ -14,14 +14,13 @@
     document.getElementById("UserLoggedIn").style.display="initial";
     document.getElementById("UserLoggingIn").style.display="none";
     document.getElementById("CreateAccount").style.display="none";
-    document.getElementById("NewUserPage").style.display="none";
     document.getElementById("title").innerHTML="Welcome User";//needs improvement
-    //window.alert("Logged in")
+    //window.alert("Logged in");
   } else {
     document.getElementById("UserLoggedIn").style.display="none";
     document.getElementById("UserLoggingIn").style.display="initial";
     document.getElementById("CreateAccount").style.display="none";
-    document.getElementById("NewUserPage").style.display="none";
+    document.getElementById("title").innerHTML="Student Login Page";
     //window.alert("Not logged in");
   }
 });
@@ -66,7 +65,6 @@ function createAccountPage()
   document.getElementById("UserLoggingIn").style.display="none";
   document.getElementById("CreateAccount").style.display="block";
 }
-
 function Update_user_information()
 {
   var user = firebase.auth().currentUser;
@@ -81,3 +79,4 @@ function Update_user_information()
   window.alert("Unexpected error occured");
   });
 }
+
