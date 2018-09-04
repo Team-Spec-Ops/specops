@@ -58,7 +58,7 @@ function createAccount()
   window.alert("An unexpected error occured" + errorMessage);
 });
 }
-
+//changes have been done
 function createAccountPage()
 {
   document.getElementById("UserLoggedIn").style.display="none";
