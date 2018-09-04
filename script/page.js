@@ -14,6 +14,7 @@
     document.getElementById("UserLoggedIn").style.display="initial";
     document.getElementById("UserLoggingIn").style.display="none";
     document.getElementById("CreateAccount").style.display="none";
+    document.getElementById("title").innerHTML="Welcome User";//needs improvement
     //window.alert("Logged in")
   } else {
     document.getElementById("UserLoggedIn").style.display="none";
