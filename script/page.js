@@ -9,3 +9,23 @@
   };
   firebase.initializeApp(config);
   
+  firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    document.getElementByID("UserLoggedIn").style.display:"initial";
+    document.getElementByID("UserLoggingIn").style.display:"none";
+  } else {
+    document.getElementByID("UserLoggedIn").style.display:"none";
+    document.getElementByID("UserLoggingIn").style.display:"initial";
+  }
+});
+
+  function.Login()
+  {
+  	var username = document.getElementByID("Input_Username").value;
+  	var password = document.getElementByID("Input_Password").value;
+  	firebase.auth().signInWithEmailAndPassword(username, password).catch(function(error) {
+ 	var errorCode = error.code;
+  	var errorMessage = error.message;
+  	window.alert("Error: " + errorMessage);
+});
+  }
