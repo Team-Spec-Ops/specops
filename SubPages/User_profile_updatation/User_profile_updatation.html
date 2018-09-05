@@ -41,7 +41,7 @@ function Update_user_information()
   var user = firebase.auth().currentUser;
   var name= document.querySelector("#Name_new_user").value;
   var card_no= document.querySelector("#Card_new_user").value;
-  var docRef= firestore.doc("Users/"+user.uid);
+  var docRef= firestore.doc("Users/"+user.email);
   docRef.set({
     "borrowedBooks1": "0",
     "borrowedBooks2": "0",
@@ -49,6 +49,7 @@ function Update_user_information()
     "borrowedBooks4": "0",
     "borrowedBooks5": "0",
     "Library_card_no": card_no,
+    "uid": user.uid,
     "student_name": name,
     "wish_list": "0",
     "card_status1": false,
@@ -63,6 +64,6 @@ function Update_user_information()
     "return_dates4": 0,
     "return_dates5": 0
     }).then(function(){window.alert("User Information Updated Successfully");
-    window.location.assign("../index.html");}).catch(function(error){window.alert("Got an error ",error)});
+    window.location.assign("../../index.html");}).catch(function(error){window.alert("Got an error ",error)});
 }
 </script>
