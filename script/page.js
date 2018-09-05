@@ -8,18 +8,19 @@
     messagingSenderId: "1042701291539"
   };
   firebase.initializeApp(config);
-
   firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     document.getElementById("UserLoggedIn").style.display="initial";
     document.getElementById("UserLoggingIn").style.display="none";
     document.getElementById("CreateAccount").style.display="none";
+    //document.getElementById("update_data").style.display="none";
     document.getElementById("title").innerHTML="Welcome User";//needs improvement
     //window.alert("Logged in");
   } else {
     document.getElementById("UserLoggedIn").style.display="none";
     document.getElementById("UserLoggingIn").style.display="initial";
     document.getElementById("CreateAccount").style.display="none";
+    //document.getElementById("update_data").style.display="none";
     document.getElementById("title").innerHTML="Student Login Page";
     //window.alert("Not logged in");
   }
@@ -47,7 +48,6 @@ function Logout()
   document.getElementById("UserLoggingIn").style.display="none";
 });
 }
-
 function createAccount()
 {
   var username = document.getElementById("Input_Username_create").value;
